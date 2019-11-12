@@ -1,8 +1,10 @@
-import glob, os
-# Current directory
-current_dir = os.getcwd()
-print(current_dir)
+
+from imutils import paths
 current_dir = 'RenaultKwidImages'
+print("[INFO] loading images...")
+imagePaths = list(paths.list_images(current_dir))
+print(imagePaths)
+
 # Percentage of images to be used for the test set
 percentage_test = 10;
 # Create and/or truncate train.txt and test.txt
@@ -11,12 +13,12 @@ file_test = open('test.txt', 'w')
 # Populate train.txt and test.txt
 counter = 1  
 index_test = round(100 / percentage_test)  
-for pathAndFilename in glob.glob(os.path.join(current_dir, "*.jpg")):
-	print("hello")  
-	title, ext = os.path.splitext(os.path.basename(pathAndFilename))
+for imagepath in imagePaths:
+	print("hello")
+
 	if counter == index_test:
 		counter = 1
-		file_test.write(current_dir + "/" + title + '.jpg' + "\n")
+		file_test.write(imagepath +"\n")
 	else:
-		file_train.write(current_dir + "/" + title + '.jpg' + "\n")
+		file_train.write(imagepath +"\n")
 		counter = counter + 1
