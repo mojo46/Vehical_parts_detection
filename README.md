@@ -1,7 +1,7 @@
 # Vehical_parts_detection
-Detecting vechical part for automating quality checks
+Detecting vechical parts for automating quality checks
 
-Detect parts or renault kwid 
+Detect parts of renault kwid 
 
 Current classes :
 
